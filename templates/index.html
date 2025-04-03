@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8 mx-auto text-center">
+        <h1 class="display-4">Welcome to Blood Donation System</h1>
+        <p class="lead">Join us in saving lives through blood donation</p>
+        <div class="mt-5">
+            <a href="{{ url_for('login') }}" class="btn btn-danger btn-lg me-3">
+                <i class="fas fa-sign-in-alt"></i> Login
+            </a>
+            <a href="{{ url_for('register') }}" class="btn btn-outline-danger btn-lg">
+                <i class="fas fa-user-plus"></i> Register
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-5">
+    <div class="col-md-4 mb-4">
+        <div class="card h-100">
+            <div class="card-body text-center">
+                <i class="fas fa-tint fa-3x text-danger mb-3"></i>
+                <h3>Donate Blood</h3>
+                <p>Your single donation can save up to 3 lives</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-4">
+        <div class="card h-100">
+            <div class="card-body text-center">
+                <i class="fas fa-heartbeat fa-3x text-danger mb-3"></i>
+                <h3>Find Donors</h3>
+                <p>Search for donors by blood type and location</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-4">
+        <div class="card h-100">
+            <div class="card-body text-center">
+                <i class="fas fa-calendar-alt fa-3x text-danger mb-3"></i>
+                <h3>Events</h3>
+                <p>Join our blood donation camps and events</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

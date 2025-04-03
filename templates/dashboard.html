@@ -1,0 +1,116 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - Blood Donation{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2><i class="fas fa-tachometer-alt"></i> Dashboard</h2>
+    <a href="{{ url_for('add_donor') }}" class="btn btn-danger">
+        <i class="fas fa-plus"></i> Add Donor
+    </a>
+</div>
+
+<div class="row mb-4">
+    <div class="col-md-4">
+        <div class="card text-white bg-danger mb-3">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h5 class="card-title">Total Donors</h5>
+                        <h2 class="mb-0">{{ stats.total_donors }}</h2>
+                    </div>
+                    <i class="fas fa-users fa-3x"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card text-white bg-success mb-3">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h5 class="card-title">Eligible Donors</h5>
+                        <h2 class="mb-0">{{ stats.eligible_donors }}</h2>
+                    </div>
+                    <i class="fas fa-heartbeat fa-3x"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card text-white bg-info mb-3">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h5 class="card-title">Last Updated</h5>
+                        <h2 class="mb-0">{{ stats.last_updated }}</h2>
+                    </div>
+                    <i class="fas fa-clock fa-3x"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card mb-4">
+    <div class="card-header bg-primary text-white">
+        <h4 class="mb-0"><i class="fas fa-chart-pie"></i> Blood Group Statistics</h4>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead class="thead-light">
+                    <tr>
+                        <th>Blood Group</th>
+                        <th>Total Donors</th>
+                        <th>Eligible Donors</th>
+                        <th>Percentage</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for bg, data in stats.blood_stats.items() %}
+                    <tr>
+                        <td>{{ bg }}</td>
+                        <td>{{ data.count }}</td>
+                        <td>{{ data.eligible }}</td>
+                        <td>
+                            {% if data.count > 0 %}
+                                {{ (data.eligible / data.count * 100)|round(1) }}%
+                            {% else %}
+                                0%
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header bg-danger text-white">
+        <h4 class="mb-0"><i class="fas fa-list"></i> Recent Donors</h4>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Blood Group</th>
+                        <th>Phone</th>
+                        <th>Email</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="5" class="text-center">No donors found</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

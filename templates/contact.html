@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block title %}Contact Us - Blood Donation{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-6">
+        <div class="card mb-4">
+            <div class="card-header bg-danger text-white">
+                <h3><i class="fas fa-envelope"></i> Contact Information</h3>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Blood Donation Center</h5>
+                <p class="card-text">
+                    <i class="fas fa-map-marker-alt text-danger"></i> 123 Blood Drive Avenue<br>
+                    Cityville, State 12345<br>
+                    United States
+                </p>
+                <p class="card-text">
+                    <i class="fas fa-phone text-danger"></i> (123) 456-7890<br>
+                    <i class="fas fa-envelope text-danger"></i> contact@blooddonation.org
+                </p>
+                <p class="card-text">
+                    <i class="fas fa-clock text-danger"></i> Open Hours:<br>
+                    Monday-Friday: 8:00 AM - 6:00 PM<br>
+                    Saturday: 9:00 AM - 3:00 PM<br>
+                    Sunday: Closed
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header bg-danger text-white">
+                <h3><i class="fas fa-paper-plane"></i> Send Us a Message</h3>
+            </div>
+            <div class="card-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Your Name</label>
+                        <input type="text" class="form-control" id="name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email Address</label>
+                        <input type="email" class="form-control" id="email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="subject" class="form-label">Subject</label>
+                        <input type="text" class="form-control" id="subject" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="message" class="form-label">Message</label>
+                        <textarea class="form-control" id="message" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-danger">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
