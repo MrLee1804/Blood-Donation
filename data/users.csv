@@ -1,1 +1,2 @@
-
+fullname,email,password,blood_group,phone,address
+user,user4test@gmail.com,scrypt:32768:8:1$s84dDBbNeA5w86nU$598430426a78e25e746a8d97d64a6e8b249d2033dd2e6511a0a5154f1b90f23a677b0745bbc4da239039da91faa4c18f373d78d59d5da8e146c59f4e2753dcac,B+,1234567890,user address
